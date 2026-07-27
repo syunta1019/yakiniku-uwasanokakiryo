@@ -270,6 +270,15 @@ footer .copy{font-family:var(--display);letter-spacing:.22em;font-size:.72rem;co
   .steps{flex-direction:column}.badges span{font-size:.76rem;padding:6px 14px}
   .ggrid{grid-template-columns:1fr}
 }
+/* mobile sticky reservation bar */
+.mobcta{display:none;position:fixed;left:0;right:0;bottom:0;z-index:45;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(46,30,14,.96);backdrop-filter:blur(8px);border-top:1px solid rgba(201,154,78,.4);box-shadow:0 -6px 24px rgba(0,0,0,.28);transition:transform .4s ease}
+.mobcta.hide{transform:translateY(130%)}
+.mobcta a{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;padding:13px 8px;border-radius:30px;font-family:var(--round);font-weight:600;font-size:.92rem;letter-spacing:.04em}
+.mobcta .m-tel{background:var(--seal);color:#fff}
+.mobcta .m-tel:active{background:var(--seal-d)}
+.mobcta .m-ig{background:transparent;color:var(--gold-soft);border:1.5px solid var(--gold)}
+.mobcta svg{width:18px;height:18px;fill:currentColor;flex:none}
+@media(max-width:900px){.mobcta{display:flex}footer{padding-bottom:96px}}
 </style>
 </head>
 <body>
@@ -666,6 +675,12 @@ footer .copy{font-family:var(--display);letter-spacing:.22em;font-size:.72rem;co
   <div class="copy">&copy; 焼肉 噂のかきりょー. All Rights Reserved.</div>
 </footer>
 
+<!-- MOBILE STICKY RESERVATION BAR -->
+<div class="mobcta" id="mobcta">
+  <a class="m-tel" href="tel:0853-31-6892"><svg viewBox="0 0 24 24"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 0 0-1.02.24l-2.2 2.2a15.05 15.05 0 0 1-6.59-6.59l2.2-2.2a1 1 0 0 0 .25-1.02A11.36 11.36 0 0 1 8.5 4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1 17 17 0 0 0 17 17 1 1 0 0 0 1-1v-3.5a1 1 0 0 0-1-1z"/></svg>電話する</a>
+  <a class="m-ig" href="https://www.instagram.com/yakiniku_uwasanokakiryo/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 3.68a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-10.4a1.44 1.44 0 1 0 0-2.88 1.44 1.44 0 0 0 0 2.88z"/></svg>DMで予約</a>
+</div>
+
 <div class="lb" id="lb"><span class="x">&times;</span><img id="lbimg" src="" alt=""></div>
 
 <script>
@@ -688,6 +703,9 @@ if(copyBtn){copyBtn.addEventListener('click',function(){
   else{fallback(t);done();}
   function fallback(x){var ta=document.createElement('textarea');ta.value=x;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);}
 });}
+// mobile sticky bar: hide while the reservation section is in view (avoid duplicate CTAs)
+var mobcta=document.getElementById('mobcta'),reserveSec=document.getElementById('reserve');
+if(mobcta&&reserveSec){new IntersectionObserver(function(e){mobcta.classList.toggle('hide',e[0].isIntersecting)},{threshold:.12}).observe(reserveSec);}
 // lightbox
 var lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg');
 document.querySelectorAll('[data-full]').forEach(function(el){el.addEventListener('click',function(){lbimg.src=el.getAttribute('data-full');lb.classList.add('on');})});
