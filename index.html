@@ -107,7 +107,8 @@ section{position:relative}
 .kgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,3vw,30px)}
 .kcard{text-align:center;padding:34px 22px;border:1px solid rgba(224,193,132,.3);border-radius:14px;background:rgba(255,255,255,.04);transition:.35s}
 .kcard:hover{background:rgba(224,193,132,.09);border-color:var(--gold-soft);transform:translateY(-4px)}
-.kcard .ic{font-size:1.8rem;margin-bottom:14px}
+.kcard .knum{font-family:var(--display);font-size:1.9rem;font-weight:600;color:var(--gold-soft);letter-spacing:.08em;margin-bottom:10px;line-height:1}
+.kcard .knum::after{content:"";display:block;width:26px;height:1px;background:var(--gold);margin:12px auto 0;opacity:.7}
 .kcard h4{font-size:1.12rem;font-weight:700;letter-spacing:.05em;color:var(--gold-soft);margin-bottom:12px;line-height:1.5}
 .kcard p{font-size:.9rem;font-weight:400;color:rgba(247,236,216,.82);line-height:2}
 .badge-pro{display:inline-block;font-family:var(--round);font-weight:700;font-size:.72rem;background:var(--seal);color:#fff;padding:3px 12px;border-radius:20px;margin-top:10px;letter-spacing:.06em}
@@ -122,6 +123,7 @@ section{position:relative}
 .mrow{display:flex;align-items:baseline;gap:8px;padding:5px 4px;font-size:.95rem}
 .mrow .nm{color:#3d2c18;font-weight:400}
 .mrow .nm .tag{font-family:var(--round);font-size:.64rem;color:#fff;background:var(--seal);border-radius:20px;padding:1px 8px;margin-left:7px;letter-spacing:.04em;vertical-align:middle}
+.mrow .nm .tag.rec{background:var(--gold);color:var(--wood-d3);font-weight:700}
 .mrow .dots{flex:1;border-bottom:1px dotted rgba(138,121,95,.55);transform:translateY(-4px)}
 .mrow .pr{font-family:var(--round);color:var(--ink);font-weight:500;white-space:nowrap}
 .drinkphoto{margin-top:22px;border-radius:14px;overflow:hidden;border:1px solid rgba(201,154,78,.4);cursor:zoom-in;position:relative}
@@ -139,6 +141,7 @@ section{position:relative}
 .scene:hover{border-color:var(--seal);transform:translateY(-4px)}
 .scene .ic{font-size:1.7rem;margin-bottom:12px}
 .scene h4{font-size:1.02rem;font-weight:700;letter-spacing:.04em;margin-bottom:8px}
+.scene h4::before{content:"";display:block;width:26px;height:1px;background:var(--gold);margin:0 auto 14px;opacity:.75}
 .scene p{font-size:.84rem;color:var(--muted);font-weight:400;line-height:1.9}
 /* gallery */
 .gallery{color:var(--cream)}
@@ -212,6 +215,12 @@ section{position:relative}
 .step .sn{font-family:var(--display);color:var(--seal);font-size:1.6rem;letter-spacing:.06em;font-weight:600}
 .step p{font-family:var(--round);font-size:.9rem;color:#4a3720;line-height:1.8;margin-top:6px}
 .step p b{color:var(--seal)}
+.tmpl{max-width:560px;margin:clamp(30px,5vw,44px) auto 0;background:rgba(255,255,255,.6);border:1px solid rgba(201,154,78,.4);border-radius:16px;padding:clamp(24px,4vw,34px);text-align:left}
+.tmpl-head{font-family:var(--round);font-weight:700;color:var(--ink);font-size:1.02rem;letter-spacing:.06em;margin-bottom:16px;text-align:center}
+.tmpl-head span{display:block;font-weight:400;font-size:.8rem;color:var(--muted);margin-top:4px}
+.tmpl pre{font-family:var(--round);white-space:pre-wrap;background:rgba(60,39,18,.06);border:1px dashed rgba(201,154,78,.5);border-radius:10px;padding:18px 18px;color:#3d2c18;font-size:.92rem;line-height:2.1;margin-bottom:18px}
+.tmpl .btn{width:100%;justify-content:center}
+.tmpl .btn.copied{background:#2e7d32}
 .res-note{font-family:var(--round);font-size:.82rem;color:var(--muted);margin-top:28px}
 /* recruit */
 .recruit{color:var(--cream)}
@@ -283,8 +292,8 @@ footer .copy{font-family:var(--display);letter-spacing:.22em;font-size:.72rem;co
     <div class="seal"><span class="s1">お肉博士</span><span class="s2">1級</span><span class="s3">保持者</span></div>
     <div class="eng">Shimane Wagyu Yakiniku &mdash; Izumo</div>
     <h1><span class="yaki">焼&thinsp;肉</span>噂のかきりょー</h1>
-    <p class="punch">その一皿は、<b>&ldquo;噂&rdquo;になる。</b></p>
-    <p class="sub">しまね和牛と、自家製の逸品。<br><span class="em">お肉博士1級保持者</span>の店主が、目の前で。</p>
+    <p class="punch">焼肉を、もっと面白く。<br>もっと<b>ワクワク</b>するものに。</p>
+    <p class="sub">しまね和牛と自家製の逸品を、<span class="em">お肉博士1級保持者</span>の店主が。<br>「また行きたい」と思える、記憶に残る一皿を。</p>
     <div class="badges">
       <span><b>お肉博士1級</b>保持者</span>
       <span><b>しまね和牛</b>使用</span>
@@ -343,10 +352,10 @@ footer .copy{font-family:var(--display);letter-spacing:.22em;font-size:.72rem;co
       <h2 class="sec-title">こだわりの、四つ。</h2>
     </div>
     <div class="kgrid">
-      <div class="kcard reveal d1"><div class="ic">🥩</div><h4>しまね和牛</h4><p>選び抜いた地元・しまね和牛。産地の恵みを、いちばん美味しい火入れで。</p></div>
-      <div class="kcard reveal d2"><div class="ic">🎓</div><h4>お肉博士1級 保持者</h4><p>店主・柿田は「お肉博士1級」保持者。目利きと火入れに、ちゃんと根拠があります。</p><span class="badge-pro">1級 保持者</span></div>
-      <div class="kcard reveal d3"><div class="ic">🍶</div><h4>自家製</h4><p>焼肉のタレも、各逸品料理も、自家製。味の芯まで、手づくりで。</p></div>
-      <div class="kcard reveal d4"><div class="ic">💛</div><h4>手が届く価格</h4><p>1品に、手が届く。本格の一皿を、家族みんなで気軽に楽しめる価格帯で。</p></div>
+      <div class="kcard reveal d1"><div class="knum">01</div><h4>しまね和牛</h4><p>選び抜いた地元・しまね和牛。産地の恵みを、いちばん美味しい火入れで。</p></div>
+      <div class="kcard reveal d2"><div class="knum">02</div><h4>お肉博士1級 保持者</h4><p>店主・柿田は「お肉博士1級」保持者。目利きと火入れに、ちゃんと根拠があります。</p><span class="badge-pro">1級 保持者</span></div>
+      <div class="kcard reveal d3"><div class="knum">03</div><h4>自家製</h4><p>焼肉のタレも、各逸品料理も、自家製。味の芯まで、手づくりで。</p></div>
+      <div class="kcard reveal d4"><div class="knum">04</div><h4>手が届く価格</h4><p>1品に、手が届く。本格の一皿を、家族みんなで気軽に楽しめる価格帯で。</p></div>
     </div>
   </div>
 </section>
@@ -372,7 +381,7 @@ footer .copy{font-family:var(--display);letter-spacing:.22em;font-size:.72rem;co
           <div class="mrow"><span class="nm">赤身肉</span><span class="dots"></span><span class="pr">990円</span></div>
           <div class="mrow"><span class="nm">ミスジ</span><span class="dots"></span><span class="pr">1,580円</span></div>
           <div class="mrow"><span class="nm">特上ロース</span><span class="dots"></span><span class="pr">1,280円</span></div>
-          <div class="mrow"><span class="nm">和牛とろたま焼きすき</span><span class="dots"></span><span class="pr">1,180円</span></div>
+          <div class="mrow"><span class="nm">和牛とろたま焼きすき<span class="tag rec">おすすめ</span></span><span class="dots"></span><span class="pr">1,180円</span></div>
           <div class="mrow"><span class="nm">ウインナー</span><span class="dots"></span><span class="pr">480円</span></div>
           <div class="mrow"><span class="nm">セセリ</span><span class="dots"></span><span class="pr">680円</span></div>
           <div class="mrow"><span class="nm">豚カルビ</span><span class="dots"></span><span class="pr">680円</span></div>
@@ -385,7 +394,7 @@ footer .copy{font-family:var(--display);letter-spacing:.22em;font-size:.72rem;co
         </div>
         <div class="mcat"><h4>ホルモン</h4>
           <div class="mrow"><span class="nm">ホルモン</span><span class="dots"></span><span class="pr">680円</span></div>
-          <div class="mrow"><span class="nm">上ホルモン</span><span class="dots"></span><span class="pr">780円</span></div>
+          <div class="mrow"><span class="nm">上ホルモン<span class="tag rec">おすすめ</span></span><span class="dots"></span><span class="pr">780円</span></div>
           <div class="mrow"><span class="nm">ミノ</span><span class="dots"></span><span class="pr">780円</span></div>
           <div class="mrow"><span class="nm">レバー</span><span class="dots"></span><span class="pr">780円</span></div>
           <div class="mrow"><span class="nm">赤センマイ</span><span class="dots"></span><span class="pr">780円</span></div>
@@ -409,7 +418,7 @@ footer .copy{font-family:var(--display);letter-spacing:.22em;font-size:.72rem;co
         </div>
         <div class="mcat"><h4>ご飯もの・〆</h4>
           <div class="mrow"><span class="nm">ご飯（大・中・小）</span><span class="dots"></span><span class="pr">約350円</span></div>
-          <div class="mrow"><span class="nm">定番チュモクパブ</span><span class="dots"></span><span class="pr">750円</span></div>
+          <div class="mrow"><span class="nm">定番チュモクパブ<span class="tag rec">おすすめ</span></span><span class="dots"></span><span class="pr">750円</span></div>
           <div class="mrow"><span class="nm">石焼きビビンバ</span><span class="dots"></span><span class="pr">1,080円</span></div>
           <div class="mrow"><span class="nm">冷麺</span><span class="dots"></span><span class="pr">880円</span></div>
           <div class="mrow"><span class="nm">スンドゥブ（ピリ辛）</span><span class="dots"></span><span class="pr">550円</span></div>
@@ -445,11 +454,7 @@ footer .copy{font-family:var(--display);letter-spacing:.22em;font-size:.72rem;co
           <div class="mrow"><span class="nm">ソフトドリンク各種（烏龍茶／ジャスミン茶／各種ジュース）</span><span class="dots"></span><span class="pr">200円〜</span></div>
           <div class="mrow"><span class="nm">ノンアルコールカクテル</span><span class="dots"></span><span class="pr">350円〜</span></div>
         </div>
-        <div class="drinkphoto" data-full="media/menu_drink.jpg">
-          <img src="media/menu_drink.jpg" alt="ドリンクメニュー表">
-          <span class="zc">タップで拡大 🔍</span>
-        </div>
-        <p class="menu-note" style="text-align:center">▲ ドリンクの詳細・全ラインナップは実物メニューをご覧ください。</p>
+        <p class="menu-note" style="text-align:center;margin-top:22px">※ 一部を抜粋しています。全ラインナップは店頭にてご確認ください。</p>
       </div>
     </div>
   </div>
@@ -464,10 +469,10 @@ footer .copy{font-family:var(--display);letter-spacing:.22em;font-size:.72rem;co
       <p class="desc">しまね和牛と自家製の逸品を、肩肘張らず、家族みんなで。おいしいお肉と、また来たくなる時間を、1品に手が届く価格でお届けします。はじめての焼肉デビューも、いつものごはんも、どうぞ気軽に。</p>
     </div>
     <div class="scenes">
-      <div class="scene reveal d1"><div class="ic">👨‍👩‍👧‍👦</div><h4>ご家族で</h4><p>お子様と一緒に、本格焼肉をふだん使いで。</p></div>
-      <div class="scene reveal d2"><div class="ic">🎂</div><h4>記念日に</h4><p>誕生日やお祝いの、ちょっと特別な一日に。</p></div>
-      <div class="scene reveal d3"><div class="ic">🍻</div><h4>仲間と</h4><p>友人や職場の集まり、気の置けない飲みに。</p></div>
-      <div class="scene reveal d4"><div class="ic">🥢</div><h4>はじめてでも</h4><p>焼肉デビューも、目の前で焼いてお迎えします。</p></div>
+      <div class="scene reveal d1"><h4>ご家族で</h4><p>お子様と一緒に、本格焼肉をふだん使いで。</p></div>
+      <div class="scene reveal d2"><h4>記念日に</h4><p>誕生日やお祝いの、ちょっと特別な一日に。</p></div>
+      <div class="scene reveal d3"><h4>仲間と</h4><p>友人や職場の集まり、気の置けない飲みに。</p></div>
+      <div class="scene reveal d4"><h4>はじめてでも</h4><p>焼肉デビューも、目の前で焼いてお迎えします。</p></div>
     </div>
   </div>
 </section>
@@ -600,10 +605,15 @@ footer .copy{font-family:var(--display);letter-spacing:.22em;font-size:.72rem;co
         <a class="btn btn-primary" href="tel:0853-31-6892">電話をかける</a>
       </div>
     </div>
-    <div class="steps reveal">
-      <div class="step"><span class="sn">1</span><p>Instagram を<b>フォロー</b>して DM を開く（またはお電話）</p></div>
-      <div class="step"><span class="sn">2</span><p><b>希望日時・人数・お名前</b>をお送りください</p></div>
-      <div class="step"><span class="sn">3</span><p>こちらからの<b>返信で予約確定</b>。当日お待ちしています</p></div>
+    <div class="tmpl reveal">
+      <div class="tmpl-head">DM予約テンプレート<span>コピーして、そのまま送信できます</span></div>
+      <pre id="tmplText">【ご予約のお願い】
+お名前：
+ご希望日時：（例）8/1（金）18:00
+人数：大人　　名／お子様　　名
+ご連絡先（お電話）：
+ご要望（お席・アレルギー等）：</pre>
+      <button class="btn btn-primary" id="copyBtn" type="button">テンプレをコピー</button>
     </div>
     <p class="res-note">※ 満席の場合はご希望に添えないことがあります。当日でも空きがあればご案内可能です。</p>
   </div>
@@ -676,6 +686,15 @@ mt.addEventListener('click',function(){
   else{nav.style.display='flex';nav.style.position='fixed';nav.style.top='58px';nav.style.right='16px';nav.style.flexDirection='column';nav.style.gap='16px';nav.style.background='rgba(46,30,14,.97)';nav.style.padding='22px 26px';nav.style.borderRadius='14px';nav.style.border='1px solid rgba(201,154,78,.35)';}
 });
 document.querySelectorAll('#nav a').forEach(function(a){a.addEventListener('click',function(){if(window.innerWidth<=900)nav.style.display='';})});
+// DM template copy
+var copyBtn=document.getElementById('copyBtn');
+if(copyBtn){copyBtn.addEventListener('click',function(){
+  var t=document.getElementById('tmplText').innerText;
+  var done=function(){copyBtn.textContent='コピーしました ✓';copyBtn.classList.add('copied');setTimeout(function(){copyBtn.textContent='テンプレをコピー';copyBtn.classList.remove('copied');},2000);};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,function(){fallback(t);done();});}
+  else{fallback(t);done();}
+  function fallback(x){var ta=document.createElement('textarea');ta.value=x;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);}
+});}
 // lightbox
 var lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg');
 document.querySelectorAll('[data-full]').forEach(function(el){el.addEventListener('click',function(){lbimg.src=el.getAttribute('data-full');lb.classList.add('on');})});
