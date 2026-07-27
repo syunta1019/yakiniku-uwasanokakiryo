@@ -165,6 +165,7 @@ section{position:relative}
 /* story */
 .story .grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(40px,6vw,76px);align-items:start}
 .story .kicker{color:var(--gold)}
+.story .owner .owner-photo{width:100%;max-width:320px;border-radius:16px;margin:18px 0 6px;box-shadow:0 18px 44px rgba(60,39,18,.28);border:1px solid rgba(201,154,78,.45)}
 .story .owner .name{font-size:clamp(1.9rem,4.5vw,2.6rem);font-weight:700;letter-spacing:.08em;line-height:1.4;margin:.9rem 0 .2rem}
 .story .owner .name small{display:block;font-family:var(--display);font-size:.88rem;letter-spacing:.3em;color:var(--gold);margin-bottom:.5rem;font-weight:600}
 .story .owner .role{color:var(--muted);font-family:var(--round);letter-spacing:.1em;font-size:.9rem;margin-bottom:1.2rem}
@@ -228,8 +229,8 @@ section{position:relative}
 .recruit .kicker{color:var(--gold-soft)}
 .recruit .poem{text-align:center;max-width:30em;margin:0 auto clamp(40px,6vw,60px);font-weight:400;color:rgba(247,236,216,.86);line-height:2.4;font-size:clamp(.98rem,1.9vw,1.1rem)}
 .recruit .poem .hl{color:var(--gold-soft);font-weight:600}
-.recruit .poem .en{display:block;font-family:var(--display);font-style:italic;letter-spacing:.08em;color:var(--gold-soft);margin-top:1.5rem;font-size:1.12rem;line-height:1.7}
-.recruit .poem .en small{display:block;font-family:var(--round);font-style:normal;font-size:.78rem;color:var(--muted);letter-spacing:.1em;margin-top:.3rem}
+.recruit .poem .en{display:block;font-family:var(--display);font-style:italic;letter-spacing:.06em;color:#f2dfb0;margin-top:1.6rem;font-size:clamp(1.2rem,2.6vw,1.5rem);line-height:1.6;text-shadow:0 2px 14px rgba(0,0,0,.45)}
+.recruit .poem .en small{display:block;font-family:var(--round);font-style:normal;font-size:.98rem;color:rgba(247,236,216,.92);letter-spacing:.12em;margin-top:.6rem}
 .rvalues{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,3vw,32px);margin-bottom:clamp(40px,6vw,60px)}
 .rvalue{border:1px solid rgba(224,193,132,.3);border-radius:14px;padding:32px 26px;text-align:center;transition:.4s;background:rgba(255,255,255,.03)}
 .rvalue:hover{border-color:var(--gold-soft);background:rgba(224,193,132,.07)}
@@ -293,14 +294,7 @@ footer .copy{font-family:var(--display);letter-spacing:.22em;font-size:.72rem;co
     <div class="eng">Shimane Wagyu Yakiniku &mdash; Izumo</div>
     <h1><span class="yaki">焼&thinsp;肉</span>噂のかきりょー</h1>
     <p class="punch">焼肉を、もっと面白く。<br>もっと<b>ワクワク</b>するものに。</p>
-    <p class="sub">しまね和牛と自家製の逸品を、<span class="em">お肉博士1級保持者</span>の店主が。<br>「また行きたい」と思える、記憶に残る一皿を。</p>
-    <div class="badges">
-      <span><b>お肉博士1級</b>保持者</span>
-      <span><b>しまね和牛</b>使用</span>
-      <span>タレも逸品も<b>自家製</b></span>
-      <span><b>1品に手が届く</b>価格</span>
-    </div>
-    <div class="hero-cta">
+    <div class="hero-cta" style="margin-top:40px">
       <a class="btn btn-primary" href="#reserve"><svg viewBox="0 0 24 24"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 0 0-1.02.24l-2.2 2.2a15.05 15.05 0 0 1-6.59-6.59l2.2-2.2a1 1 0 0 0 .25-1.02A11.36 11.36 0 0 1 8.5 4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1 17 17 0 0 0 17 17 1 1 0 0 0 1-1v-3.5a1 1 0 0 0-1-1z"/></svg>ご予約・お問い合わせ</a>
       <a class="btn btn-ghost" href="#menu">メニューを見る</a>
     </div>
@@ -516,6 +510,7 @@ footer .copy{font-family:var(--display);letter-spacing:.22em;font-size:.72rem;co
     <div class="grid">
       <div class="owner reveal">
         <span class="kicker">Story</span>
+        <img class="owner-photo" src="media/owner.jpg" alt="店主 柿田 涼 ―「今日も最高の日になる」">
         <div class="name"><small>Ryo Kakita</small>柿田 涼</div>
         <div class="role">焼肉 噂のかきりょー ／ 店主</div>
         <div class="pro-line">お肉博士1級 保持者</div>
