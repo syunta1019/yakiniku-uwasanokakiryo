@@ -304,6 +304,11 @@ footer .copy{font-family:var(--display);letter-spacing:.22em;font-size:.72rem;co
 [data-wood="c"] .btn-ghost{color:#5a3a12;border-color:rgba(120,80,30,.65)}
 [data-wood="c"] .badges span{color:#33220f;background:rgba(255,255,255,.35);border-color:rgba(120,80,30,.4)}
 [data-wood="c"] .badges span b{color:#8a5a1c}
+/* C theme readability: force remaining light (white/gold) text on the light oak to dark */
+[data-wood="c"] .wood-dark :is(p,dt,dd,b,small,span,.hl,.en,.n,.knum,.sign,.scroll-cue){color:#33220f!important}
+/* keep white text on colored-background buttons (予約=赤 / Instagram=グラデ) */
+[data-wood="c"] .wood-dark :is(.btn-primary,.btn-ig),
+[data-wood="c"] .wood-dark :is(.btn-primary,.btn-ig) *{color:#fff!important}
 </style>
 </head>
 <body>
@@ -401,15 +406,15 @@ footer .copy{font-family:var(--display);letter-spacing:.22em;font-size:.72rem;co
       <div class="mcol reveal">
         <h3>お料理・フード</h3>
         <div class="mcat"><h4>前菜・一品</h4>
-          <div class="mrow"><span class="nm">白菜キムチ／オイキムチ／カクテキ／山芋キムチ</span><span class="dots"></span><span class="pr">各450円</span></div>
-          <div class="mrow"><span class="nm">キムチ3種盛り</span><span class="dots"></span><span class="pr">750円</span></div>
-          <div class="mrow"><span class="nm">もやしナムル</span><span class="dots"></span><span class="pr">450円</span></div>
-          <div class="mrow"><span class="nm">ナムル盛合わせ</span><span class="dots"></span><span class="pr">650円</span></div>
           <div class="mrow"><span class="nm">枝豆</span><span class="dots"></span><span class="pr">350円</span></div>
+          <div class="mrow"><span class="nm">フライドポテト</span><span class="dots"></span><span class="pr">390円</span></div>
           <div class="mrow"><span class="nm">ネギ塩ニラ冷奴</span><span class="dots"></span><span class="pr">420円</span></div>
           <div class="mrow"><span class="nm">旨塩キャベツ</span><span class="dots"></span><span class="pr">420円</span></div>
+          <div class="mrow"><span class="nm">白菜キムチ／オイキムチ／カクテキ／山芋キムチ</span><span class="dots"></span><span class="pr">各450円</span></div>
+          <div class="mrow"><span class="nm">もやしナムル</span><span class="dots"></span><span class="pr">450円</span></div>
+          <div class="mrow"><span class="nm">ナムル盛合わせ</span><span class="dots"></span><span class="pr">650円</span></div>
           <div class="mrow"><span class="nm">チョレギサラダ</span><span class="dots"></span><span class="pr">650円</span></div>
-          <div class="mrow"><span class="nm">フライドポテト</span><span class="dots"></span><span class="pr">390円</span></div>
+          <div class="mrow"><span class="nm">キムチ3種盛り</span><span class="dots"></span><span class="pr">750円</span></div>
         </div>
         <div class="mcat"><h4>焼き野菜</h4>
           <div class="mrow"><span class="nm">焼き野菜盛合わせ</span><span class="dots"></span><span class="pr">700円</span></div>
